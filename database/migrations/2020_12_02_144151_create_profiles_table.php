@@ -15,7 +15,7 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('employee_id')->unique();
             $table->text('favorite_color');
             $table->text('favorite_food');
             // Relationship
