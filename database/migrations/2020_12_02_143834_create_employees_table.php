@@ -16,9 +16,6 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->text('full_name');
-            $table->unsignedBigInteger('profile_id');
-            // Relationship
-            $table->foreign('profile_id')->references('id')->on('profiles');
         });
     }
 
