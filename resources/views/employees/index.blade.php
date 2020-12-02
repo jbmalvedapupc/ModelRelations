@@ -1,3 +1,4 @@
+@extends('layouts.master')
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Employees List</h1>
     <div class="row">
@@ -14,7 +15,7 @@
                         @foreach($employees as $employee)
                             <tr>
                                 <td>{{ $employee->id }}</td>
-                                <td>{{ $employee->full_name }}</td>
+                                <td><a href="{{ route('employees.show', $employee->id) }}">{{ $employee->full_name }}</a></td>
                             </tr>
                         @endforeach
                     </tbody>

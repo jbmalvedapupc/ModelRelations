@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
-});
+Route::get('/', 'EmployeeController@index')->name('employees.index');
+Route::get('/employees/{id}', 'EmployeeController@show')->name('employees.show');
