@@ -16,7 +16,8 @@ class Employee extends Model
     {
         return $this->hasOne(Profile::class);
     }
-
+    // Si employee pwede marami friends.
+    // Take note: plural ang function name.
     public function friends()
     {
         return $this->hasMany(Friend::class);

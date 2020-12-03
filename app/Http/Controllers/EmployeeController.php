@@ -15,7 +15,7 @@ class EmployeeController extends Controller
 
     public function show($id)
     {
-        // Hahanapin sa database ang employee KASAMA ang profile sa profiles table.
+        // Hahanapin sa database ang employee KASAMA ang profile at friends.
         $employee = Employee::with(['profile', 'friends'])->findOrFail($id);
         // Uncomment next line para makita ang laman ng $employee variable.
         // dd($employee);
