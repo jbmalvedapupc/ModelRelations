@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">{{ $employee->full_name }}</h1>
-    <div class="row">
+    {{-- Favorites --}}
+    <div class="row mb-4">
         <div class="col-6">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -32,6 +33,30 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    {{-- Friends --}}
+    <h1 class="h3 mb-4 text-gray-800">Friends List</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Friend ID</th>
+                            <th>Friend Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($employee->friends as $friend)
+                            <tr>
+                                <td>{{ $friend->id }}</td>
+                                <td>{{ $friend->full_name }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

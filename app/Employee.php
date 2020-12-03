@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Profile;
+use App\Friend;
 
 class Employee extends Model
 {
@@ -14,5 +15,10 @@ class Employee extends Model
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function friends()
+    {
+        return $this->hasMany(Friend::class);
     }
 }
