@@ -9,7 +9,7 @@ class Employee extends Model
 {
     public $timestamps = false;
 
-    // Define the relationship with Profile.
+    // Define the relationship with Profiles table.
     // Take note: singular function name. 💣 
     public function profile()
     {
