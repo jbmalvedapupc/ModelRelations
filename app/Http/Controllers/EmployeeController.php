@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Employee;
+
 
 class EmployeeController extends Controller
 {
@@ -15,10 +17,9 @@ class EmployeeController extends Controller
 
     public function show($id)
     {
-        // Hahanapin sa database ang employee KASAMA ang profile at friends.
-        $employee = Employee::with(['profile', 'friends'])->findOrFail($id);
-        // Uncomment next line para makita ang laman ng $employee variable.
-        // dd($employee);
+        $employee = DB::select('call sp_getEmployeeFriends(?)',[$id]);
+        $employee = Employee::hydrate($employee);
+        dd($employee);
         return view('employees.show', compact('employee'));
     }
 }
